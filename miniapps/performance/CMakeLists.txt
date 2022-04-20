@@ -11,14 +11,11 @@
 
 if (${CMAKE_SYSTEM_PROCESSOR} MATCHES "ppc64")
    set(MFEM_PERF_CXX_ARCH_FLAGS "-mcpu=native" "-mtune=native")
-else()
-   set(MFEM_PERF_CXX_ARCH_FLAGS "-march=native")
 endif()
 
 set(PERFORMANCE_CXX_OPTIONS)
 if (${CMAKE_CXX_COMPILER_ID} MATCHES "Clang")
   list(APPEND PERFORMANCE_CXX_OPTIONS
-    "-march=native"
     "-fcolor-diagnostics"
     "-fvectorize"
     "-fslp-vectorize"
